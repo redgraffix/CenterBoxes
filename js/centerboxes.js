@@ -9,16 +9,15 @@
 function centerContentBoxes(){ 
 	//size the outer container to be the browser window size
 	var windowHeight = $(window).height();
-	var windowWidth = $(window).width();
-	$(".container").each(function(){	
-	$(this).css({'min-height': + windowHeight + 'px','width': + windowWidth + 'px'}).prepend("<div style='height:1px;width:1px'>&nbsp;</div>"); 
-	});
+	var windowWidth = $(window).width();	
+	$(".container").css({'min-height': + windowHeight + 'px','width': + windowWidth + 'px'});
+	$(".centerbox").css('margin','0px auto'); 
 	//put the content in the center of that container now
 	$(".centerbox").each(function(){	
-		var thisHeight = $(this).height(); 
-		var contentMarginHeight=Math.floor(((windowHeight - thisHeight)/2));
-		if (contentMarginHeight <= 0){contentMarginHeight = 10;};
-		$(this).css({"margin":+contentMarginHeight+"px auto"});
+		var thisHeight = $(this).outerHeight(); 
+		var contentPaddingHeight=Math.floor(((windowHeight - thisHeight)/2));
+		if (contentPaddingHeight <= 10){contentMarginHeight = 10;};
+		$(this).parent().css({'padding-top':+contentPaddingHeight+'px'})
 		});	 
 	};
 	
