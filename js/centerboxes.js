@@ -1,28 +1,23 @@
-//place entire page in container called - .container//
-//then label the content  you want centered inside of the container-  .centerbox//
+/*
+ *  centerboxes
+ *  Copyright (c) 2013 Jason Rodgers
+ *  jquery plugin to center content within browser window 
+ *  Licensed under the MIT license
+ *
+ */
 
-
-function centerContentBoxes(){  
-
-$(".centerbox").each(function(){	
-			 
-		var contentMarginWidth=($(window).width()/2)-($(this).width()/2);
-		if (contentMarginWidth<0){contentMarginWidth=20}; 
-		var contentMarginHeight=($(window).height()/ 2)-($(this).height()/2);
-		if (contentMarginHeight<0){contentMarginHeight=20};
-		$(this).css({
-			"margin":+contentMarginHeight+"px "+contentMarginWidth+"px"
-			});
-			});
-			
-	$(".centerbox").css({"float":"left"
-		});
+function centerContentBoxes(){ 
+	//size the outer container to be the browser window size
+	var windowHeight = $(window).height();
+	$(".container").css({'height': + windowHeight + 'px',}); 
+	//put the content in the center of that container now
+	$(".centerbox").each(function(){	
+		var thisHeight = $(this).height(); 
+		var contentMarginHeight=Math.floor(((windowHeight - thisHeight)/2));
+		if (contentMarginHeight <= 0){contentMarginHeight = 10;};
+		$(this).css({"margin":+contentMarginHeight+"px auto"});
+		});	 
+	};
 	
-	$(".container").css({
-		'width': + $(window).width() + 'px',
-		'height': +  $(window).height() + 'px',
-		'padding-bottom':'500px',
-		}); 
-};
 $(window).resize(function() {centerContentBoxes();});
 $(document, window).ready(function() {centerContentBoxes();});
