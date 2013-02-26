@@ -9,7 +9,10 @@
 function centerContentBoxes(){ 
 	//size the outer container to be the browser window size
 	var windowHeight = $(window).height();
-	$(".container").css({'height': + windowHeight + 'px',}); 
+	var windowWidth = $(window).width();
+	$(".container").each(function(){	
+	$(this).css({'min-height': + windowHeight + 'px','width': + windowWidth + 'px'}).prepend("<div style='height:1px;width:1px'>&nbsp;</div>"); 
+	});
 	//put the content in the center of that container now
 	$(".centerbox").each(function(){	
 		var thisHeight = $(this).height(); 
