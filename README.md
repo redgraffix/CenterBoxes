@@ -6,10 +6,18 @@ Jquery plugin to center content boxes horizontally and vertically within the bro
 Usage
 =====
 
-Create outer div with a class of "container" then inside that create a div with a class of "centerbox". Place all content inside the div labeled "centerbox". Plugin will size outer container to be the browser window size. Then centerbox will center itself in that container.
+CenterBoxes sizes the outer div ```.container``` to be the browser window size, then positions the inner div```.centerbox``` in the direct center of screen. 
 
-"centerbox" can be styled however you wish, but be sure to declare some kind of width. Do not place any content between "container" and "centerbox", it will throw off the margins.
-
-Suggestions
+HTML Structure
 ===========
-This plugin works nicely with a smooth scroll plugin, or you can get fancy and horizontaly scrolling boxes.
+In it's most simple form your html should look something like this
+```html
+<div class="container">
+<div class="centerbox">Some Content Here</div>
+</div>
+```
+The elements can be styled however needed. You'll probably want to declare some kind of width on the ``` .centerbox ```. It's not necessary though if you dont want it to center horizontally.
+
+this works well for popups, or single page site where you want the conent of each section to fill the screen.
+
+
